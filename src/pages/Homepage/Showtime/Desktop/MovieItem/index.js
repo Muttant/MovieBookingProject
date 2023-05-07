@@ -10,7 +10,7 @@ import useApiThoiLuongDanhGia from '../../../../../utilities/useApiThoiLuongDanh
 import './movie.scss'
 
 function MovieItem({ movie, comingMovie }) {
-  const classes = useStyles({ bg: movie.hinhAnhUrl, comingMovie });
+  const classes = useStyles({ bg: movie.hinhAnh, comingMovie });
   const history = useHistory();
   const { thoiLuong } = useApiThoiLuongDanhGia(movie.maPhim)
   return (
@@ -24,7 +24,7 @@ function MovieItem({ movie, comingMovie }) {
             <div className="film__overlay" onClick={() => history.push(`/phim/${movie.maPhim}`, { comingMovie })} />
             <div className="play__trailer">
               {/* class play lấy từ Carousel component*/}
-              <BtnPlay cssRoot={"play"} width={48} height={48} urlYoutube={movie.trailerURL} />
+              <BtnPlay cssRoot={"play"} width={48} height={48} urlYoutube={movie.trailer} />
             </div>
           </div>
           <BlockRating danhGia={movie.danhGia} />

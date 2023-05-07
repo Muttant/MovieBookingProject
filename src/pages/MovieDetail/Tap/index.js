@@ -149,7 +149,7 @@ export default function CenteredTabs({
     if (loadingPostComment) {
       return;
     }
-    if (dataComment.post.length < 61) {
+    if (dataComment.post.length < 3) {
       // nếu comment quá ngắn
       setwarningtext(true);
       return;

@@ -60,7 +60,7 @@ const movieDetailReducer = (state = initialState, action) => {
     case GET_COMMENT_SUCCESS: {
       return {
         ...state,
-        commentList: action.payload.data,
+        commentList: action.payload.data.data,
         loadingCommentList: false
       };
     }
@@ -78,7 +78,7 @@ const movieDetailReducer = (state = initialState, action) => {
     case POST_COMMENT_SUCCESS: {
       return {
         ...state,
-        postCommentObj: action.payload.data,
+        postCommentObj: action.payload.data.data,
         loadingPostComment: false
       };
     }
