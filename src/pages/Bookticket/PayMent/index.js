@@ -40,6 +40,7 @@ const makeObjError = (name, value, dataSubmit) => {
 };
 
 export default function PayMent() {
+  const { currentUser } = useSelector((state) => state.authReducer);
   const {
     listSeat,
     amount,
@@ -175,9 +176,8 @@ export default function PayMent() {
         <div className={classes.payMentItem}>
           <p className={classes.tenPhim}>{thongTinPhim?.tenPhim}</p>
           <p>{thongTinPhim?.tenCumRap}</p>
-          <p>{`${thongTinPhim && formatDate(thongTinPhim.ngayChieu).dayToday} ${
-            thongTinPhim?.ngayChieu
-          } - ${thongTinPhim?.gioChieu} - ${thongTinPhim?.tenRap}`}</p>
+          <p>{`${thongTinPhim && formatDate(thongTinPhim.ngayChieu).dayToday} ${thongTinPhim?.ngayChieu
+            } - ${thongTinPhim?.gioChieu} - ${thongTinPhim?.tenRap}`}</p>
         </div>
 
         {/* ghế đã chọn */}
@@ -312,6 +312,27 @@ export default function PayMent() {
               />
               <label>Thanh toán tại cửa hàng tiện ích</label>
             </div>
+
+            {currentUser.maLoaiNguoiDung === "QuanTri" && (
+              <div className={classes.formPaymentItem}>
+                <input
+                  className={classes.input}
+                  type="radio"
+                  name="paymentMethod"
+                  value="Cửa hàng"
+                  onChange={onChange}
+                  checked={
+                    dataSubmit.values.paymentMethod === "Cửa hàng"
+                  }
+                />
+                <img
+                  className={classes.img}
+                  src="/img/bookticket/cuahang.png"
+                  alt="cuahang"
+                />
+                <label>Thanh toán tại cửa hàng</label>
+              </div>
+            )}
           </div>
         </div>
 

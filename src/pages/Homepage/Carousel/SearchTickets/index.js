@@ -155,7 +155,7 @@ export default function SearchStickets() {
       .getThongTinLichChieuPhim(phim.maPhim)
       .then((result) => {
         setData((data) => ({ ...data, startRequest: false }));
-        const cumRapChieuData = result.data.heThongRapChieu.reduce(
+        const cumRapChieuData = result.data.data.heThongRapChieu.reduce(
           (colect, item) => {
             return [...colect, ...item.cumRapChieu];
           },
